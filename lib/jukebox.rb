@@ -20,10 +20,8 @@ def help
 end
 
 def list(songs)
-  i = 0
-  songs.each do |song|
-    puts "#{i}. #{song}"
-    i++
+  songs.each_with_index do |song, index|
+    puts "#{index+1}. #{song}"
   end
 end
 
