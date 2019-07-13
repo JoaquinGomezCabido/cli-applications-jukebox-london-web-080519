@@ -18,15 +18,13 @@ def play(songs)
   puts "Please enter a song name or number:"
   response = gets.chomp
 
-  solution = songs.detect do |song|
-    response == song
+  if response.to_i >= 1 && response.to_i <= songs.length
+    puts "Playing #{songs[response.to_i-1]}"
+  elsif songs.include?(response)
+    puts "Playing #{songs.find{|song| song == response}}"
+  else
+    puts "Invalid input, please try again"
   end
-
-  if !solution
-    songs.length > response ? solution = "Invalid input, please try again" : solution = response - 1
-  end
-
-  puts solution
 end
 
 def exit_jukebox
